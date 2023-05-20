@@ -308,3 +308,22 @@ form {
     float: right;
     margin-top: 5vh;
 }
+
+#sort1:hover , #sort2:hover{
+    cursor: pointer;
+}
+
+#erormsg {
+    display: flex;
+    flex-direction: row;
+    color: red;
+    padding-right: 2vw;
+    justify-content: right;
+    text-align: right;
+    width: 100%;
+   
+}
+
+.calendarIcon:hover {
+    cursor: pointer;
+}

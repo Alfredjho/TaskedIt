@@ -5,15 +5,49 @@ const none = document.querySelector(".none");
 const taskName = document.getElementById('taskName');
 const taskPriority = document.getElementById('taskPriority');
 const taskDate = document.getElementById("taskDueDate");
+const taskTime = document.getElementById("taskDueTime");
 var Error = document.getElementById("lblError");
+const sortTime = document.getElementById("sort1");
+const erormessage = document.getElementById("erormsg");
+const sortPriority = document.getElementById("sort2");
+const calenderIcon = document.querySelector (".calendarIcon");
 
 sortIcon.addEventListener('click', () => {
-    sort.style.display = (sort.style.display === 'none') ? 'flex' : 'none';
+    if (sort.style.display !== 'flex') {
+        sort.style.display = 'flex';
+    }
+    else {
+        sort.style.display = 'none';
+    }
 });
+
+sortTime.addEventListener('click', () => {
+    if(erormessage.innerHTML === "")
+    erormessage.innerHTML ="This feature is still under development!";
+
+    else 
+    erormessage.innerHTML ="";
+})
+
+sortPriority.addEventListener('click', () => {
+    if(erormessage.innerHTML === "")
+    erormessage.innerHTML ="This feature is still under development!";
+
+    else if(erormessage.innerHTML != "")
+    erormessage.innerHTML ="";
+})
+
+calenderIcon.addEventListener('click', () => {
+    if(erormessage.innerHTML === "")
+    erormessage.innerHTML ="This feature is still under development!";
+
+    else if(erormessage.innerHTML != "")
+    erormessage.innerHTML ="";
+})
 
 addTask.addEventListener('click', () => {
 
-    if(taskName.value === "" || taskDate.value === "" || taskPriority.value === "")
+    if(taskName.value === "" || taskDate.value === "" || taskPriority.value === "" || taskTime.value === "")
     {
         Error.innerHTML = "*All fields must be filled!";
         Error.style.color="red";
@@ -40,8 +74,16 @@ addTask.addEventListener('click', () => {
 
     // bikin tag <p> baru yang isi textnya adalah input date value
     var p = document.createElement("p");
-    p.textContent = formattedDate;
+    
+    var inputTime = taskTime.value;
+    var time = document.createElement("p");
+    time.textContent = inputTime;
 
+    p.textContent = formattedDate + " (" + inputTime + ") ";
+
+    //ambil value dari form input time
+
+    
 
     //bikin img baru sesuai dengan value priority
     var selectedElement = taskPriority.value;
@@ -103,4 +145,5 @@ addTask.addEventListener('click', () => {
     }
    
 });
+
 
